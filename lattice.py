@@ -27,7 +27,7 @@ class Lattice:
         return LatticeElement(self,self.Uelements[ElementIndex])
 
     @property
-    def TopWElement(self):
+    def TopElement(self):
         return LatticeElement(self,self.Uelements[-1])
 
     @property
@@ -43,7 +43,7 @@ class Lattice:
                     if not bool( sum([ int(self.WElementByIndex(x) <= self.wrap(elementD)) for x in graph[indexS]])) and not elementS==elementD:
                         graph[indexS]+=[indexD]
         dotcode='digraph G {\nsplines="line"\nrankdir=BT\n'
-        dotcode+='\"'+str(self.TopWElement.unwrap)+'\" [shape=box];\n'
+        dotcode+='\"'+str(self.TopElement.unwrap)+'\" [shape=box];\n'
         dotcode+='\"'+str(self.BottonElement.unwrap)+'\" [shape=box];\n'
         for s, ds in graph.iteritems():
             for d in ds:
