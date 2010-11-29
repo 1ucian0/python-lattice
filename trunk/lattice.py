@@ -42,10 +42,7 @@ class Lattice:
                 if self.wrap(elementS) <= self.wrap(elementD):
                     if not bool( sum([ int(self.WElementByIndex(x) <= self.wrap(elementD)) for x in graph[indexS]])) and not elementS==elementD:
                         graph[indexS]+=[indexD]
-        print graph
-        dotcode='''digraph G {
-        splines="line"
-        rankdir=BT\n'''
+        dotcode='digraph G {\nsplines="line"\nrankdir=BT\n'
         dotcode+='\"'+str(self.TopWElement.unwrap)+'\" [shape=box];\n'
         dotcode+='\"'+str(self.BottonElement.unwrap)+'\" [shape=box];\n'
         for s, ds in graph.iteritems():
