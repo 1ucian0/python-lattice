@@ -1,5 +1,5 @@
 Metadata-Version: 1.0
-Name: lattice
+Name: python-lattice
 Version: 0.0.1
 Summary: Python library to operate elements of a finite lattice
 Home-page: https://code.google.com/p/python-lattice/
