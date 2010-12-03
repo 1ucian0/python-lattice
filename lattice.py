@@ -4,8 +4,6 @@ class Lattice:
 
         Keyword arguments:
         Uelements -- list. The lattice set.
-            Uelements[0] : should be the botton element of the lattice
-            Uelements[-1]: should be the top element of the lattice
         join_func  -- join function that operates to elements and returns the greatest element.
         meet_func  -- meet function that operates to elements and returns the least element.
 
@@ -28,11 +26,17 @@ class Lattice:
 
     @property
     def TopElement(self):
-        return LatticeElement(self,self.Uelements[-1])
+        top=self.wrap(self.Uelements[0])
+        for element in self.Uelements[1:]:
+            top |= self.wrap(element)
+        return top
 
     @property
     def BottonElement(self):
-        return LatticeElement(self,self.Uelements[0])
+        botton=self.wrap(self.Uelements[0])
+        for element in self.Uelements[1:]:
+            botton &= self.wrap(element)
+        return botton
 
     def Hasse(self):
         graph=dict()
