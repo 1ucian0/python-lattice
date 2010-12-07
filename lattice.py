@@ -1,4 +1,4 @@
-class Lattice:
+class Lattice(object):
     def __init__(self, Uelements,join_func,meet_func):
         '''Create a lattice:
 
@@ -67,7 +67,7 @@ class Lattice:
         """Represents the lattice as an instance of Lattice."""
         return 'Lattice(%s,%s,%s)' % (self.Uelements,self.join,self.meet)
 
-class LatticeElement:
+class LatticeElement():
     def __init__(self, lattice, Uelement):
         if Uelement not in lattice.Uelements: raise ValueError('The given value is not a lattice element')
         self.lattice=lattice
